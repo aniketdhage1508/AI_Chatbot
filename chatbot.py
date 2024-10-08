@@ -40,7 +40,7 @@ for message in st.session_state.messages:
 prompt = st.chat_input('Ask your question here')
 
 # System prompt to guide the AI's response
-system_prompt = "You are an AI chatbot trained to answer questions in the healthcare domain. If the question is out of your expertise, provide a relevant response but indicate subtly: *>>>NOTE: THIS QUESTION MIGHT BE OUT OF MY DOMAIN!<<<*\n"
+system_prompt = "You are an AI chatbot trained to answer questions."
 
 # If the user submits a prompt
 if prompt:
