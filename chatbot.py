@@ -26,7 +26,7 @@ def send_message_to_model(message):
     return response.text
 
 # Streamlit app setup
-st.title('Ask Gemini AI')
+st.title('**Ask AI Chatbot**')
 
 # Set up a session state message variable to hold all the old messages
 if 'messages' not in st.session_state:
