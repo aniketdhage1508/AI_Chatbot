@@ -1,6 +1,2 @@
-langchain
-langchain-community
 streamlit
-wxai_langchain
 google-generativeai
-pypdf
