@@ -1,6 +1,5 @@
 import streamlit as st
 import google.generativeai as genai
-from langchain.llms.base import LLM
 
 # Configure the Gemini API
 genai.configure(api_key="AIzaSyAq2MDtfYcK-e4oIBiDwLkrLRLolO9LdTc")
@@ -26,15 +25,6 @@ def send_message_to_model(message):
     response = chat_session.send_message(message)
     return response.text
 
-# Create a custom LLM wrapper for Streamlit
-class GeminiLLM(LLM):
-    def _call(self, prompt, stop=None):
-        return send_message_to_model(prompt)
-    
-    @property
-    def _llm_type(self) -> str:
-        return "gemini"
-
 # Streamlit app setup
 st.title('Ask Gemini AI')
 
@@ -50,7 +40,7 @@ for message in st.session_state.messages:
 prompt = st.chat_input('Ask your question here')
 
 # System prompt to guide the AI's response
-system_prompt = "You are an AI chatbot trained to answer questions of the user.\n"
+system_prompt = "You are an AI chatbot trained to answer questions in the healthcare domain. If the question is out of your expertise, provide a relevant response but indicate subtly: *>>>NOTE: THIS QUESTION MIGHT BE OUT OF MY DOMAIN!<<<*\n"
 
 # If the user submits a prompt
 if prompt:
